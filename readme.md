@@ -66,7 +66,33 @@ router.post('/', async(req, res) => {
 
 ### 2. The service
 
-The `addNewProduct( newProduct )` function will first validate `newProduct`. If successful it will then call the `createProduct()` function in `productData.js` to insert it into the database.
+The **`addNewProduct( newProduct )`** function will first validate `newProduct`. 
+
+```javascript
+async function addNewProduct(productForm) {
+
+  // declare variables
+  let result;
+
+    // Call the product validator - kept seperate to avoid clutter here
+    let validatedProduct = productValidator.validateNewProduct(productForm); 
+
+    // If validation returned a product object - save to database
+    if (validatedProduct) {
+      // Insert
+      result = await productData.createProduct(validatedProduct);
+
+      return result;
+    
+    } else {
+      return ('invalid product data');
+    }
+}
+```
+
+
+
+If successful it will then call the `createProduct()` function in `productData.js` to insert it into the database.
 
 #### Validation
 
