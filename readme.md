@@ -92,7 +92,7 @@ async function addNewProduct(productForm) {
 
 
 
-If successful it will then call the `createProduct()` function in `productData.js` to insert it into the database.
+If successful (after validation) it will call the **`createProduct()`** function in `productData.js` to insert it into the database.
 
 #### Validation
 
@@ -168,7 +168,7 @@ module.exports = {
 
 
 
-Also create a new folder named `models` and add a new file, `product.js` to the folder. This will define a `Product` object for use by the validator.
+Also create a new folder named `models` and add a new file, **`product.js`** to the folder. This will define a **`Product`** object for use by the validator.
 
 ![Product Object](./media/product_js.png)
 
